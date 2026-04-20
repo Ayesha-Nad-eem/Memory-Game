@@ -27,7 +27,7 @@ function App() {
   const [matchedCards, setMatchedCards] = useState([]);
   const [score, setScore] = useState(0);
   const [moves, setMoves] = useState(0);
-  // const [isLocked, setIsLocked] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
 
   // const shuffleArray = (array) => {
   //   const shuffled = [...array];
@@ -50,10 +50,10 @@ function App() {
     }));
 
     setCards(finalCards);
-    // setIsLocked(false);
-    // setMoves(0);
-    // setScore(0);
-    // setMatchedCards([]);
+    setIsLocked(false);
+    setMoves(0);
+    setScore(0);
+    setMatchedCards([]);
     setFlippedCards([]);
   };
 
@@ -64,9 +64,9 @@ function App() {
   const handleCardClick = (card) => {
     // Don't allow clicking if card is already flipped, matched
     if (
-      // card.isFlipped ||
-      // card.isMatched ||
-      // isLocked ||
+      card.isFlipped ||
+      card.isMatched ||
+      isLocked ||
       flippedCards.length === 2
     ) {
       return;
